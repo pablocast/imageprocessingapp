@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmins="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Image Processing App</title>
+<link href="/static/styles/demo_styles.css" rel="stylesheet" type="text/css">
+<link href="/static/styles/smart_wizard.css" rel="stylesheet" type="text/css">
+<link href="/static/styles/bootstrap.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src=""></script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#wizard').smartWizard({
+            transitionEffect: 'fade',
+            onFinish: onFinishCallback
+        });
+
+        function onFinishCallback() {
+            $('form').submit();
+        }
+    });
+</script>
+
+<head>
+
+<body>
+    <div class="demoHead">
+        <div>
+            <div style="float:left">
+                <h1>Image Processing App</h1>
+                <h2>a cloud-based app for Image Processing</h2>
+            </div>
+
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+</head>
+
+
+</html>
