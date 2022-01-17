@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html xmins="http://www.w3.org/1999/xhtml">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Image Processing App</title>
-<link href="/static/styles/demo_styles.css" rel="stylesheet" type="text/css">
-<link href="/static/styles/smart_wizard.css" rel="stylesheet" type="text/css">
-<link href="/static/styles/bootstrap.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src=""></script>
-<script type="text/javascript" src=""></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#wizard').smartWizard({
-            transitionEffect: 'fade',
-            onFinish: onFinishCallback
-        });
-
-        function onFinishCallback() {
-            $('form').submit();
-        }
-    });
-</script>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Image Processing App</title>
+    <link href="./static/demo_style.css" rel="stylesheet" type="text/css">
+    <link href="./static/smart_wizard.css" rel="stylesheet" type="text/css">
+    <link href="./static/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
 
 <body>
     <div class="demoHead">
@@ -34,12 +21,112 @@
         </div>
     </div>
 
+    <form action="/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br>
+        <table align="center" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <h2>Upload Image File</h2>
+                    <div id="wizard" class="">
+                        <ul class="nav">
+                            <li>
+                                <a class="nav-link" href="#step-1">
+                                    <label class="stepNumber">1</label>
+                                    <span class="stepDesc">
+                                        <div>Step 1</div>
+                                        <small>Select Image File</small>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#step-2">
+                                    <label class="stepNumber">2</label>
+                                    <span class="stepDesc">
+                                        <div>Step 2</div>
+                                        <small>Select Image Filter</small>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#step-3">
+                                    <label class="stepNumber">3</label>
+                                    <span class="stepDesc">
+                                        <div>Step 3</div>
+                                        <small>Apply Filter</small>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" role="tabpanel" id="step-1">
+                                <h2 class="StepTitle">Select Image File</h2>
+
+                                <h4>Choose the image file:</h4>
+
+                                <p>{{form.non_field_errors}}</p>
+                                <p>
+                                    {{form.myfilefield.errors}}
+                                    {{form.myfilefield}}
+                                </p>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="step-2">
+                                <h2 class="StepTitle">Select Image Filter</h2>
+
+                                <h4>Choose Filter:</h4>
+                                <h4>
+                                    <table border="0" width="90%" align="center">
+                                        <tr>
+                                            <td><input type="radio" name="preset" value="gray">&nbsp;Gray</td>
+                                            <td><input type="radio" name="preset" value="sepia">&nbsp;Sepia</td>
+                                            <td><input type="radio" name="preset" value="poster">&nbsp;Poster</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="radio" name="preset" value="blur">&nbsp;Blur</td>
+                                            <td><input type="radio" name="preset" value="edge">&nbsp;Edge</td>
+                                            <td><input type="radio" name="preset" value="solar">&nbsp;Solar</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                            <td><img src="./static/images/gray.jpg" width="120px"></td>
+                                        </tr>
+                                    </table>
+                                </h4>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="step-3">
+                                <h2 class="StepTitle"> Apply Filter </h2>
+                                <br>
+                                <h4>Click finish to apply filter image</h4><br>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#wizard').smartWizard({
+                transitionEffect: 'fade',
+                onFinish: onFinishCallback
+            });
+
+            function onFinishCallback() {
+                $('form').submit()
+            }
+        });
+    </script>
+
 </body>
-
-
-
-
-</head>
-
 
 </html>

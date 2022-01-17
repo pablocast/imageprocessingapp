@@ -230,7 +230,7 @@ sup {
 }
 
 a {
-  color: #0d6efd;
+  color: white;
   text-decoration: underline;
 }
 a:hover {
@@ -299,6 +299,7 @@ svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  width: 50% !important;
 }
 
 caption {
@@ -11263,4 +11264,3 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=bootstrap.css.map */
