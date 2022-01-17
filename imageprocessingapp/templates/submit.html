@@ -5,8 +5,8 @@
 <link href="./static/demo_style.css" rel="stylesheet" type="text/css">
 <link href="./static/smart_wizard.css" rel="stylesheet" type="text/css">
 <link href="./static/bootstrap.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src=""></script>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="./static/js/jquery.smartWizard.js"></script>
+<script type="text/javascript" src="./static/js/js_jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#wizard').smartWizard({
@@ -33,6 +33,83 @@
             <div style="clear:both;"></div>
         </div>
     </div>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br>
+        <table align="center" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <h2>Upload Image File</h2>
+                    <div id="wizard" class="swMain">
+                        <ul>
+                            <li>
+                                <a href="#step-1">
+                                    <label class="stepNumber">1</label>
+                                    <span class="stepDesc">
+                                        Step 1 <br />
+                                        <small>Select Image File</small>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step-2">
+                                    <label class="stepNumber">2</label>
+                                    <span class="stepDesc">
+                                        Step 2 <br />
+                                        <small>Select Image Filter</small>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step-3">
+                                    <label class="stepNumber">3</label>
+                                    <span class="stepDesc">
+                                        Step 3 <br />
+                                        <small>Apply Filter</small>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="step-1">
+                            <h2 class="StepTitle">Select Image File</h2>
+
+                            <h4>Choose the image file:</h4>
+
+                            <p>{{form.non_field_errors}}</p>
+                            <p>
+                                {{form.myfilefield.errors}}
+                                {{form.myfilefield}}
+                            </p>
+                        </div>
+                        <div id="step-2">
+                            <h2 class="StepTitle">Select Image Filter</h2>
+
+                            <h4>Choose Filter:</h4>
+                            <h4>
+                                <table border="0" width="90%" align="center">
+                                    <tr>
+                                        <td><input type="radio" name="preset" value="gray">&nbsp;Gray</td>
+                                        <td><input type="radio" name="preset" value="sepia">&nbsp;Sepia</td>
+                                        <td><input type="radio" name="preset" value="poster">&nbsp;Poster</td>
+                                    </tr>
+
+                                    
+                                </table>
+                            </h4>
+
+    
+                        </div>
+
+
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+
+    </form>
 
 </body>
 
