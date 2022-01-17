@@ -19,6 +19,6 @@ from imageprocessingapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/',  views.submit, name='submit')
+    path('',  views.submit, name='submit')
 
 ]
