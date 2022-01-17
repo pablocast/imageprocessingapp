@@ -86,7 +86,8 @@
 .sw.sw-justified>.nav>li {
   flex-basis: 0;
   flex-grow: 1;
-  text-align: center
+  text-align: center;
+  color: white;
 }
 
 .sw.sw-dark {
@@ -152,7 +153,7 @@
 }
 
 .sw-theme-default {
-  /*border: 1px solid #eee */
+  margin-top: 25px;
 }
 
 .sw-theme-default>.tab-content>.tab-pane {
@@ -189,7 +190,6 @@
 
 .sw-theme-default>.nav .nav-link.inactive {
   background-color: lightgray;
-  color: #999;
   cursor: not-allowed;
   text-align: left;
 }
@@ -197,7 +197,9 @@
 .sw-theme-default>.nav .nav-link.active {
   cursor: pointer;
   background-color: darkorange;
+  color: white !important;
   text-align: left;
+  box-shadow: 6px 6px 2px 0px rgba(0, 0, 255, .2);
 }
 
 .sw-theme-default>.nav .nav-link.active::after {
@@ -207,7 +209,8 @@
 
 .sw-theme-default>.nav .nav-link.done {
   background-color: #5cb85c !important;
-  cursor: pointer
+  cursor: pointer;
+  color: white !important;
 }
 
 .sw-theme-default>.nav .nav-link.done::after {
