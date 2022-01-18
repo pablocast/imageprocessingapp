@@ -676,6 +676,7 @@
             if (!this.options.cycleSteps) {
                 this.main.find('.sw-btn-prev').removeClass("disabled");
                 this.main.find('.sw-btn-next').removeClass("disabled");
+              
                 switch (this._getStepPosition(idx)) {
                     case 'first':
                         this.main.find('.sw-btn-prev').addClass("disabled");
