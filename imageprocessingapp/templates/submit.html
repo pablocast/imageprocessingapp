@@ -115,9 +115,29 @@
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript">
     </script>
     <script>
+        var btnFinish = $('<button></button>').text('Finish').addClass('btn sw-btn-fnsh');
+
+        btnFinish.prop('type', 'submit')
+        btnFinish.prop('id', 'finish')
+        btnFinish.addClass('disabled')
+
+        $("#wizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
+            
+            if (stepPosition === 'last') {
+                console.log(stepPosition)
+                $("#finish").removeClass('disabled');
+            } else {
+                $("#finish").addClass('disabled');
+            }
+        })
+
         $(document).ready(function () {
             $('#wizard').smartWizard({
                 transitionEffect: 'fade',
+                labelFinish: 'Finish',
+                toolbarSettings: {
+                    toolbarExtraButtons: [btnFinish]
+                },
                 onFinish: onFinishCallback
             });
 
